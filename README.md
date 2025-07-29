@@ -199,3 +199,5 @@ We have set up a live online demo for you to test Smartstore without a local ins
 Smartstore Community Edition is released under the [AGPL license](https://www.gnu.org/licenses/agpl-3.0.de.html).
 
 **Add a star to our repository** to stay up-to-date, get involved or just watch how we're doing. Learn about the latest developments, actively participate and don't miss out on new releases.
+#   S m a r t S t o r e T u t o r i a l  
+ 
