@@ -4,7 +4,4 @@
         <OutputPath>..\..\Smartstore.Web\Modules\MyOrg.HelloWorld</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
     </PropertyGroup>
-    <ItemGroup>
-      <None Remove="module.json" />
-    </ItemGroup>
 </Project>

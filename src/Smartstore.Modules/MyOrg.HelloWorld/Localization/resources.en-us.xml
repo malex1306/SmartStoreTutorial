@@ -1,0 +1,19 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+    <LocaleResource Name="Plugins.FriendlyName.MyOrg.HelloWorld" AppendRootKey="false">
+        <Value>Hello World</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Description.MyOrg.HelloWorld" AppendRootKey="false">
+        <Value>This plugin says Hello World.</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Plugins.MyOrg.HelloWorld" AppendRootKey="false">
+        <Children>
+            <LocaleResource Name="Name">
+                <Value>Name to greet</Value>
+            </LocaleResource>
+            <LocaleResource Name="Name.Hint">
+                <Value>Enter the name of the person to be greeted.</Value>
+            </LocaleResource>
+        </Children>
+    </LocaleResource>
+</Language>
