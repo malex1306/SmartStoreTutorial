@@ -4,4 +4,7 @@
         <OutputPath>..\..\Smartstore.Web\Modules\MyOrg.HelloWorld</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
     </PropertyGroup>
+    <ItemGroup>
+      <Content Remove="Views\HelloWorldAdmin\AdminEditTab.cshtml" />
+    </ItemGroup>
 </Project>
