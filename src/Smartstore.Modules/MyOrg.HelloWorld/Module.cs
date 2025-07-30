@@ -1,8 +1,9 @@
 ﻿using System.Threading.Tasks;
+using Smartstore.Core.Widgets;
 using Smartstore.Engine.Modularity;
 using Smartstore.Http;
 
-internal class Module : ModuleBase, IConfigurable
+internal class Module : ModuleBase, IConfigurable, IActivatableWidget
 {
     public RouteInfo GetConfigurationRoute()
         => new("Configure", "HelloWorldAdmin", new { area = "Admin" });
@@ -32,5 +33,13 @@ internal class Module : ModuleBase, IConfigurable
 
         // VERY IMPORTANT! Don't forget to call.
         await base.UninstallAsync();
+    }
+
+    public Widget GetDisplayWidget(string widgetZone, object model, int storeId) =>
+        new ComponentWidget(typeof(HelloWorldViewComponent), new { widgetZone, model, storeId });
+
+    public string[] GetWidgetZones()
+    {
+        return new string[] { "target_widget_zone_name" };
     }
 }
