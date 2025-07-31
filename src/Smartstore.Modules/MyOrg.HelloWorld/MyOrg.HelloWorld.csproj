@@ -5,6 +5,7 @@
         <OutDir>$(OutputPath)</OutDir>
     </PropertyGroup>
     <ItemGroup>
+      <Content Remove="Localization\resources.de-de.xml" />
       <Content Remove="Views\HelloWorldAdmin\AdminEditTab.cshtml" />
       <Content Remove="Views\Shared\Components\HelloWorld\Default.cshtml" />
     </ItemGroup>

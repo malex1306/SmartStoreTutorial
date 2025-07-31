@@ -14,15 +14,21 @@
             <LocaleResource Name="Name.Hint">
                 <Value>Enter the name of the person to be greeted.</Value>
             </LocaleResource>
+            <LocaleResource Name="MyTabValue">
+                <Value>Text to save</Value>
+            </LocaleResource>
+            <LocaleResource Name="MyTabValue.Hint">
+                <Value>Enter the text to be saved for this product.</Value>
+            </LocaleResource>
+            <LocaleResource Name="MyMenuItem">
+                <Value>Configure Module</Value>
+            </LocaleResource>
+            <LocaleResource Name="MySecondMenuItem">
+                <Value>Hello World</Value>
+            </LocaleResource>
+            <LocaleResource Name="MySubMenuItem">
+                <Value>Another way to configure</Value>
+            </LocaleResource>
         </Children>
-    </LocaleResource>
-    <LocaleResource Name="MyMenuItem">
-        <Value>Configure Module</Value>
-    </LocaleResource>
-    <LocaleResource Name="MySecondMenuItem">
-        <Value>Hello World</Value>
-    </LocaleResource>
-    <LocaleResource Name="MySubMenuItem">
-        <Value>Another Way to confugure</Value>
     </LocaleResource>
 </Language>
