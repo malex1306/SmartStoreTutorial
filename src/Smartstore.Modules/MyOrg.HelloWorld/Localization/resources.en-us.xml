@@ -16,4 +16,13 @@
             </LocaleResource>
         </Children>
     </LocaleResource>
+    <LocaleResource Name="MyMenuItem">
+        <Value>Configure Module</Value>
+    </LocaleResource>
+    <LocaleResource Name="MySecondMenuItem">
+        <Value>Hello World</Value>
+    </LocaleResource>
+    <LocaleResource Name="MySubMenuItem">
+        <Value>Another Way to confugure</Value>
+    </LocaleResource>
 </Language>
