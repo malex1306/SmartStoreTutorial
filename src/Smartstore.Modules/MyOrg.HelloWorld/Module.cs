@@ -1,45 +1,64 @@
-﻿using System.Threading.Tasks;
+using Autofac;
+using Smartstore.Core.Content.Menus;
 using Smartstore.Core.Widgets;
+using Smartstore.Engine.Builders;
 using Smartstore.Engine.Modularity;
 using Smartstore.Http;
+using System.Threading.Tasks;
+using Smartstore.Engine;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Routing;
+using Smartstore.Core.Common;
 
-internal class Module : ModuleBase, IConfigurable, IActivatableWidget
+namespace MyOrg.HelloWorld
 {
-    public RouteInfo GetConfigurationRoute()
-        => new("Configure", "HelloWorldAdmin", new { area = "Admin" });
-
-    public override async Task InstallAsync(ModuleInstallationContext context)
+    internal class Module : ModuleBase, IConfigurable, IActivatableWidget, IStarter
     {
-        // Saves the default state of a settings class to the database 
-        // without overwriting existing values.
-        //await TrySaveSettingsAsync<HelloWorldSettings>();
+        public bool Matches(IApplicationContext appContext) => appContext.IsInstalled;
 
-        // Imports all language resources for the current module from 
-        // xml files in "Localization" directory (if any found).
-        await ImportLanguageResourcesAsync();
+        public void ConfigureContainer(ContainerBuilder builder, IApplicationContext appContext)
+        {
+            builder.RegisterType<AdminMenu>().As<IMenuProvider>().InstancePerLifetimeScope();
+        }
 
-        // VERY IMPORTANT! Don't forget to call.
-        await base.InstallAsync(context);
-    }
+        public RouteInfo GetConfigurationRoute()
+            => new("Configure", "HelloWorldAdmin", new { area = "Admin" });
 
-    public override async Task UninstallAsync()
-    {
-        // Deletes all "HelloWorldSettings" properties settings from the database.
-        //await DeleteSettingsAsync<HelloWorldSettings>();
+        public override async Task InstallAsync(ModuleInstallationContext context)
+        {
+            await ImportLanguageResourcesAsync();
+            await base.InstallAsync(context);
+        }
 
-        // Deletes all language resource for the current module 
-        // if "ResourceRootKey" is module.json is not empty.
-        await DeleteLanguageResourcesAsync();
+        public override async Task UninstallAsync()
+        {
+            await DeleteLanguageResourcesAsync();
+            await base.UninstallAsync();
 
-        // VERY IMPORTANT! Don't forget to call.
-        await base.UninstallAsync();
-    }
 
-    public Widget GetDisplayWidget(string widgetZone, object model, int storeId) =>
-        new ComponentWidget(typeof(HelloWorldViewComponent), new { widgetZone, model, storeId });
+        }
 
-    public string[] GetWidgetZones()
-    {
-        return new string[] { "target_widget_zone_name" };
+        public Widget GetDisplayWidget(string widgetZone, object model, int storeId) =>
+            new ComponentWidget(typeof(HelloWorldViewComponent), new { widgetZone, model, storeId });
+
+        public string[] GetWidgetZones()
+        {
+            return new string[] { "target_widget_zone_name" };
+        }
+
+        public int Order => 0;
+
+        public void ConfigureServices(IServiceCollection services, IApplicationContext appContext) { }
+
+        public void ConfigureMvc(IMvcBuilder mvcBuilder, IServiceCollection services, IApplicationContext appContext) { }
+
+        public void BuildPipeline(RequestPipelineBuilder builder) { }
+
+        public void MapRoutes(EndpointRoutingBuilder builder) { }
+
+        public string Key => "MyOrg.HelloWorld";
+
+        public string[] DependsOn => new string[0];
     }
 }

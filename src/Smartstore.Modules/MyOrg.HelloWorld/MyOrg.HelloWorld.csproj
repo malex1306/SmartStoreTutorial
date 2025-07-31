@@ -1,16 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
         <Product>A Hello World module for Smartstore</Product>
         <OutputPath>..\..\Smartstore.Web\Modules\MyOrg.HelloWorld</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
     </PropertyGroup>
     <ItemGroup>
-      <Content Remove="Localization\resources.de-de.xml" />
-      <Content Remove="Views\HelloWorldAdmin\AdminEditTab.cshtml" />
-      <Content Remove="Views\Shared\Components\HelloWorld\Default.cshtml" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\..\Smartstore.Web\Smartstore.Web.csproj" />
+        <EmbeddedResource Include="Localization\*.xml" />
+        <Content Remove="Views\HelloWorldAdmin\AdminEditTab.cshtml" />
+        <Content Remove="Views\Shared\Components\HelloWorld\Default.cshtml" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Smartstore.Web\Smartstore.Web.csproj">
