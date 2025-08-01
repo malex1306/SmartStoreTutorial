@@ -7,6 +7,9 @@
     <ItemGroup>
         <EmbeddedResource Include="Localization\*.xml" />
         <Content Remove="Views\HelloWorldAdmin\AdminEditTab.cshtml" />
+        <Content Remove="Views\Shared\BlockTemplates\helloworld\Edit.cshtml" />
+        <Content Remove="Views\Shared\BlockTemplates\helloworld\Preview.cshtml" />
+        <Content Remove="Views\Shared\BlockTemplates\helloworld\Public.cshtml" />
         <Content Remove="Views\Shared\Components\HelloWorld\Default.cshtml" />
     </ItemGroup>
     <ItemGroup>
