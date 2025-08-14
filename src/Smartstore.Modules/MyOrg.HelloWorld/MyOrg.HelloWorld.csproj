@@ -10,6 +10,7 @@
         <Content Remove="Views\Shared\BlockTemplates\helloworld\Edit.cshtml" />
         <Content Remove="Views\Shared\BlockTemplates\helloworld\Preview.cshtml" />
         <Content Remove="Views\Shared\BlockTemplates\helloworld\Public.cshtml" />
+        <Content Remove="Views\Shared\Components\Default.cshtml" />
         <Content Remove="Views\Shared\Components\HelloWorld\Default.cshtml" />
     </ItemGroup>
     <ItemGroup>

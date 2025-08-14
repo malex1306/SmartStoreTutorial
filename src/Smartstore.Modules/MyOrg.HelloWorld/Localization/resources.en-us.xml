@@ -17,6 +17,12 @@
             <LocaleResource Name="MySubMenuItem">
                 <Value>Another way to configure</Value>
             </LocaleResource>
+            <LocaleResource Name="NumberOfExportedRows">
+                <Value>Number of rows</Value>
+            </LocaleResource>
+            <LocaleResource Name="NumberOfExportedRows.Hint">
+                <Value>Number of rows to be exported</Value>
+            </LocaleResource>
         </Children>
     </LocaleResource>
 </Language>

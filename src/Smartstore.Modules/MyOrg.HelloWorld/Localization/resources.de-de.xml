@@ -17,6 +17,12 @@
             <LocaleResource Name="MySubMenuItem">
                 <Value>Eine weitere Möglichkeit zu Konfigurieren</Value>
             </LocaleResource>
+            <LocaleResource Name="NumberOfExportedRows">
+                <Value>Anzahl der Zeilen</Value>
+            </LocaleResource>
+            <LocaleResource Name="NumberOfExportedRows.Hint">
+                <Value>Anzahl der Zeien zum Exportieren</Value>
+            </LocaleResource>
         </Children>
     </LocaleResource>
 </Language>

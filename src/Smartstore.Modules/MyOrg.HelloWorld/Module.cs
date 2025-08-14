@@ -10,11 +10,24 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing;
 using Smartstore.Core.Common;
+using Smartstore.Core.Data;
+using Smartstore.Core.DataExchange.Export;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Dynamic.Core;
+using Smartstore; // muss ins using damit EachAsync funktioniert
 
 namespace MyOrg.HelloWorld
 {
-    internal class Module : ModuleBase, IConfigurable, IActivatableWidget, IStarter
+    public class Module : ModuleBase, IConfigurable, IActivatableWidget, IStarter
     {
+
+        private readonly SmartDbContext _db;
+        private readonly IExportProfileService _exportProfileService;
+
+        public Module()
+        {
+            
+        }
         public bool Matches(IApplicationContext appContext) => appContext.IsInstalled;
 
         public void ConfigureContainer(ContainerBuilder builder, IApplicationContext appContext)
@@ -33,6 +46,13 @@ namespace MyOrg.HelloWorld
 
         public override async Task UninstallAsync()
         {
+            // Dynamic LINQ wird hier verwendet, um mehrere Provider-Systemnamen in einer Abfrage zu filtern
+            var profiles = await _db.ExportProfiles
+                .Include(x => x.Deployments)
+                .Include(x => x.Task)
+                .Where("ProviderSystemName == @0 || ProviderSystemName == @1",
+                "MyOrg.HelloWorld.ProductCsv", "MyOrg.HelloWorld.ProductXml").ToListAsync(); 
+            await profiles.EachAsync(x => _exportProfileService.DeleteExportProfileAsync(x, true));
             await DeleteLanguageResourcesAsync();
             await base.UninstallAsync();
 
