@@ -7,22 +7,20 @@
     </LocaleResource>
 
     <LocaleResource Name="Plugins.MyOrg.HelloWorld" AppendRootKey="false">
-        <Children>
-            <LocaleResource Name="MyMenuItem">
-                <Value>Configure Module</Value>
-            </LocaleResource>
-            <LocaleResource Name="MySecondMenuItem">
-                <Value>Hello World</Value>
-            </LocaleResource>
-            <LocaleResource Name="MySubMenuItem">
-                <Value>Another way to configure</Value>
-            </LocaleResource>
-            <LocaleResource Name="NumberOfExportedRows">
-                <Value>Number of rows</Value>
-            </LocaleResource>
-            <LocaleResource Name="NumberOfExportedRows.Hint">
-                <Value>Number of rows to be exported</Value>
-            </LocaleResource>
-        </Children>
+        <LocaleResource Name="MyMenuItem">
+            <Value>Configure Module</Value>
+        </LocaleResource>
+        <LocaleResource Name="MySecondMenuItem">
+            <Value>Hello World</Value>
+        </LocaleResource>
+        <LocaleResource Name="MySubMenuItem">
+            <Value>Another way to configure</Value>
+        </LocaleResource>
+        <LocaleResource Name="NumberOfExportedRows">
+            <Value>Number of rows</Value>
+        </LocaleResource>
+        <LocaleResource Name="NumberOfExportedRows.Hint">
+            <Value>Number of rows to be exported</Value>
+        </LocaleResource>
     </LocaleResource>
 </Language>
