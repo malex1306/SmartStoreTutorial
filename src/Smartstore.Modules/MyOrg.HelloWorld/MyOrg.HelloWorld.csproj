@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
         <Product>A Hello World module for Smartstore</Product>
         <OutputPath>..\..\Smartstore.Web\Modules\MyOrg.HelloWorld</OutputPath>
@@ -12,6 +12,7 @@
         <Content Remove="Views\Shared\BlockTemplates\helloworld\Public.cshtml" />
         <Content Remove="Views\Shared\Components\Default.cshtml" />
         <Content Remove="Views\Shared\Components\HelloWorld\Default.cshtml" />
+        <Content Remove="Views\Shared\Components\NotificationSettings\Default.cshtml" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Smartstore.Web\Smartstore.Web.csproj">
